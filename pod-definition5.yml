@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ghost-pod
+  labels:
+    type: cms
+spec:
+  containers:
+    - name: ghost
+      image: ghost
+      env:
+        - name: NODE_ENV
+          value: development
+...
