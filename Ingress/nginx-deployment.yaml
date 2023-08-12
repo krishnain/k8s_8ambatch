@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: nginx-deployment
+ labels:
+  author: Ramakrishna
+  type: nginx-appserver
+spec:
+ replicas: 2
+ selector:
+  matchLabels:
+   name: nginx-appserver
+ template:
+  metadata:
+   name: nginx-pod
+   labels:
+    name: nginx-appserver
+  spec:
+   containers:
+    - name: mynginx
+      image: nginx
+      ports:
+       - containerPort: 80
+
+...

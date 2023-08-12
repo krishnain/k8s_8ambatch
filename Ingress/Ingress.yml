@@ -1,0 +1,39 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: webserver-ingress
+spec:
+  rules:
+    - host: tomcat.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+             service:
+              name: tomcat-service
+              port:
+               number: 80
+    - host: apache.example.com
+      http:
+        paths:
+          -  path: /
+             pathType: Prefix
+             backend:
+              service:
+               name: apache-service
+               port:
+                 number: 80
+    - host: nginx.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+             service:
+              name: nginx-service
+              port:
+                number: 80
+
+
